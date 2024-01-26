@@ -1,8 +1,11 @@
+//chat page
 import React from 'react'
-
+import { Box } from '@mui/material'
 const chat = () => {
   return (
-    <div>chat</div>
+    <Box>
+
+    </Box>
   )
 }
 
