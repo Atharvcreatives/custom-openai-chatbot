@@ -13,7 +13,16 @@ const chat = () => {
         gap: 3,
       }}
     >
-      <Box sx={{ display: { md: "flex", xs: "none", sm: "none" } }}></Box>
+      <Box sx={{ display: { md: "flex", xs: "none", sm: "none" } }}>
+        <Box
+          sx={{
+            display: "flex",
+            width: "100%",
+            height: "60vh",
+            bgcolor: "rgb(17,29,39)",
+          }}
+        ></Box>
+      </Box>
     </Box>
   );
 };
