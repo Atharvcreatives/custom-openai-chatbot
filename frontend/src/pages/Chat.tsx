@@ -67,7 +67,11 @@ const chat = () => {
         </Box>
       </Box>
       <Box sx={{ display: "flex", flex: { md: 0.8, xs: 1, sm: 1 } }}>
-        <Typography></Typography>
+        <Typography
+          sx={{ textAlign: "center", fontSize: "40px", color: "white", mb: 2 }}
+        >
+          Model - GPT 3.5 Turbo
+        </Typography>
       </Box>
     </Box>
   );
