@@ -73,7 +73,12 @@ const chat = () => {
         </Box>
       </Box>
       <Box
-        sx={{ display: "flex", flex: { md: 0.8, xs: 1, sm: 1 }, width: "100" }}
+        sx={{
+          display: "flex",
+          flex: { md: 0.8, xs: 1, sm: 1 },
+          flexDirection: "column",
+          px:3
+        }}
       >
         <Typography
           sx={{
@@ -82,11 +87,25 @@ const chat = () => {
             color: "white",
             mb: 2,
             mx: "auto",
+            fontWeight:"600",
           }}
         >
           Model - GPT 3.5 Turbo
         </Typography>
-        <Box></Box>
+        <Box
+          sx={{
+            width: "100%",
+            height: "60vh",
+            borderRadius: 3,
+            mx: "auto",
+            display: "flex",
+            flexDirection: "column",
+            overflow: "scroll",
+            overflowX: "hidden",
+            overflowY: "auto",
+            scrollBehavior: "smooth",
+          }}
+        ></Box>
       </Box>
     </Box>
   );
