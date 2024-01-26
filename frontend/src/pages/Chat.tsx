@@ -1,9 +1,31 @@
 //chat page
 import React from "react";
 import { Box, Avatar, Button, Typography } from "@mui/material";
-
 import { useAuth } from "../context/AuthContext";
 import { red } from "@mui/material/colors";
+const chatMessages = [
+  { role: "user", content: "Hello, can you tell me the weather today?" },
+  { role: "assistant", content: "Sure! What is your location?" },
+  { role: "user", content: "I'm in New York." },
+  {
+    role: "assistant",
+    content:
+      "Great! The weather in New York today is 75°F with partly cloudy skies.",
+  },
+  { role: "user", content: "Thanks! What about tomorrow?" },
+  {
+    role: "assistant",
+    content:
+      "Tomorrow's forecast for New York is 80°F with a chance of showers.",
+  },
+  { role: "user", content: "That's helpful. What else can you do?" },
+  {
+    role: "assistant",
+    content:
+      "I can provide information on a variety of topics, set reminders, and answer general questions. How can I assist you today?",
+  },
+];
+
 const chat = () => {
   const auth = useAuth();
   return (
@@ -77,7 +99,7 @@ const chat = () => {
           display: "flex",
           flex: { md: 0.8, xs: 1, sm: 1 },
           flexDirection: "column",
-          px:3
+          px: 3,
         }}
       >
         <Typography
@@ -87,7 +109,7 @@ const chat = () => {
             color: "white",
             mb: 2,
             mx: "auto",
-            fontWeight:"600",
+            fontWeight: "600",
           }}
         >
           Model - GPT 3.5 Turbo
@@ -105,7 +127,7 @@ const chat = () => {
             overflowY: "auto",
             scrollBehavior: "smooth",
           }}
-        ></Box>
+        >{chatMessages.map((chat)=><div>{ chat.content}</div>)}</Box>
       </Box>
     </Box>
   );
