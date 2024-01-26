@@ -1,8 +1,7 @@
-//chat page
-import React, { useRef, useState } from "react";
-import { Box, Avatar, Button, Typography, IconButton } from "@mui/material";
+import React, {  useRef, useState } from "react";
+import { Box, Avatar, Typography, Button, IconButton } from "@mui/material";
+import red from "@mui/material/colors/red";
 import { useAuth } from "../context/AuthContext";
-import { red } from "@mui/material/colors";
 import ChatItem from "../components/chat/ChatItem";
 import { IoMdSend } from "react-icons/io";
 import { sendChatRequest } from "../helpers/api-communicator";
@@ -10,8 +9,8 @@ type Message = {
   role: "user" | "assistant";
   content: string;
 };
-
-const chat = () => {
+const Chat = () => {
+ 
   const inputRef = useRef<HTMLInputElement | null>(null);
   const auth = useAuth();
   const [chatMessages, setChatMessages] = useState<Message[]>([]);
@@ -24,7 +23,10 @@ const chat = () => {
     setChatMessages((prev) => [...prev, newMessage]);
     const chatData = await sendChatRequest(content);
     setChatMessages([...chatData.chats]);
+    //
   };
+
+
   return (
     <Box
       sx={{
@@ -70,9 +72,8 @@ const chat = () => {
             You are talking to a ChatBOT
           </Typography>
           <Typography sx={{ mx: "auto", fontFamily: "work sans", my: 4, p: 3 }}>
-            You can ask some questions related to Programming ,Education ,
-            Knowledge , Business, Advices , Education , etc. AVOID SHARING
-            PERSONAL INFO.
+            You can ask some questions related to Knowledge, Business, Advices,
+            Education, etc. But avoid sharing personal information
           </Typography>
           <Button
             sx={{
@@ -88,7 +89,7 @@ const chat = () => {
               },
             }}
           >
-            CLEAR CONVERSATION
+            Clear Conversation
           </Button>
         </Box>
       </Box>
@@ -162,4 +163,4 @@ const chat = () => {
   );
 };
 
-export default chat;
+export default Chat;
