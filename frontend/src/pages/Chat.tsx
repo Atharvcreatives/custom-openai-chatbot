@@ -3,6 +3,7 @@ import React from "react";
 import { Box, Avatar, Button, Typography } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
 import { red } from "@mui/material/colors";
+import ChatItem from "../components/chat/ChatItem";
 const chatMessages = [
   { role: "user", content: "Hello, can you tell me the weather today?" },
   { role: "assistant", content: "Sure! What is your location?" },
@@ -127,7 +128,36 @@ const chat = () => {
             overflowY: "auto",
             scrollBehavior: "smooth",
           }}
-        >{chatMessages.map((chat)=><div>{ chat.content}</div>)}</Box>
+        >
+          {chatMessages.map((chat, index) => (
+            <div>
+              <ChatItem content={chat.content} role={chat.role} key={index} />
+            </div>
+          ))}
+        </Box>
+        <div
+          style={{
+            width: "100%",
+            padding: "20px",
+            borderRadius: 8,
+            backgroundColor: "rgb(17,27,39)",
+            display: "flex",
+            margin: "auto",
+          }}
+        >
+          <input
+            type="text"
+            style={{
+              width: "100%",
+              backgroundColor: "transparent",
+              padding: "10px",
+              border: "none",
+              outline: "none",
+              color: "white",
+              fontSize: "20px",
+            }}
+          />
+        </div>
       </Box>
     </Box>
   );
