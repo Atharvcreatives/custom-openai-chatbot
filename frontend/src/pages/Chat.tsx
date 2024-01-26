@@ -1,6 +1,7 @@
 //chat page
 import React from "react";
-import { Avatar, Box, Button, Typography } from "@mui/material";
+import { Box, Avatar, Button, Typography } from "@mui/material";
+
 import { useAuth } from "../context/AuthContext";
 import { red } from "@mui/material/colors";
 const chat = () => {
@@ -55,10 +56,18 @@ const chat = () => {
               fontWeight: "700",
               borderRadius: 3,
               mx: "auto",
-              bgcolor: red
+              bgcolor: red[300],
+              ":hover": {
+                bgcolor: red.A400,
+              },
             }}
-          ></Button>
+          >
+            CLEAR CONVERSATION
+          </Button>
         </Box>
+      </Box>
+      <Box sx={{ display: "flex", flex: { md: 0.8, xs: 1, sm: 1 } }}>
+        <Typography></Typography>
       </Box>
     </Box>
   );
