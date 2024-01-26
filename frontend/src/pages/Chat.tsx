@@ -1,7 +1,8 @@
 //chat page
 import React from "react";
-import { Avatar, Box, Typography } from "@mui/material";
+import { Avatar, Box, Button, Typography } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
+import { red } from "@mui/material/colors";
 const chat = () => {
   const auth = useAuth();
   return (
@@ -42,9 +43,21 @@ const chat = () => {
             You are talking to a ChatBOT
           </Typography>
           <Typography sx={{ mx: "auto", fontFamily: "work sans", my: 4, p: 3 }}>
-            You can ask some questions related to Education , Knowledge ,
-            Business, Advices , Education , etc.
+            You can ask some questions related to Programming ,Education ,
+            Knowledge , Business, Advices , Education , etc. AVOID SHARING
+            PERSONAL INFO.
           </Typography>
+          <Button
+            sx={{
+              width: "200px",
+              my: "auto",
+              color: "white",
+              fontWeight: "700",
+              borderRadius: 3,
+              mx: "auto",
+              bgcolor: red
+            }}
+          ></Button>
         </Box>
       </Box>
     </Box>
