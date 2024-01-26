@@ -1,34 +1,27 @@
 //chat page
-import React from "react";
-import { Box, Avatar, Button, Typography } from "@mui/material";
+import React, { useRef, useState } from "react";
+import { Box, Avatar, Button, Typography, IconButton } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
 import { red } from "@mui/material/colors";
 import ChatItem from "../components/chat/ChatItem";
-const chatMessages = [
-  { role: "user", content: "Hello, can you tell me the weather today?" },
-  { role: "assistant", content: "Sure! What is your location?" },
-  { role: "user", content: "I'm in New York." },
-  {
-    role: "assistant",
-    content:
-      "Great! The weather in New York today is 75°F with partly cloudy skies.",
-  },
-  { role: "user", content: "Thanks! What about tomorrow?" },
-  {
-    role: "assistant",
-    content:
-      "Tomorrow's forecast for New York is 80°F with a chance of showers.",
-  },
-  { role: "user", content: "That's helpful. What else can you do?" },
-  {
-    role: "assistant",
-    content:
-      "I can provide information on a variety of topics, set reminders, and answer general questions. How can I assist you today?",
-  },
-];
+import { IoMdSend } from "react-icons/io";
+type Message = {
+  role: "user" | "assistant";
+  content: string;
+};
 
 const chat = () => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const auth = useAuth();
+  const [chatMessages, setChatMessages] = useState<Message[]>([]);
+  const handleSubmit = async () => {
+    const content = inputRef.current?.value as string;
+    if (inputRef && inputRef.current) {
+      inputRef.current.value = "";
+    }
+    const newMessage: Message = { role: "user", content };
+    setChatMessages((prev) => [...prev, newMessage]);
+  };
   return (
     <Box
       sx={{
@@ -67,7 +60,8 @@ const chat = () => {
               fontWeight: 700,
             }}
           >
-            {auth?.user?.name[0]} {auth?.user?.name.split(" ")[1][0]}
+            {auth?.user?.name[0]}
+            {auth?.user?.name.split(" ")[1][0]}
           </Avatar>
           <Typography sx={{ mx: "auto", fontFamily: "work sans" }}>
             You are talking to a ChatBOT
@@ -105,7 +99,6 @@ const chat = () => {
       >
         <Typography
           sx={{
-            textAlign: "center",
             fontSize: "40px",
             color: "white",
             mb: 2,
@@ -130,33 +123,36 @@ const chat = () => {
           }}
         >
           {chatMessages.map((chat, index) => (
-            <div>
-              <ChatItem content={chat.content} role={chat.role} key={index} />
-            </div>
+            //@ts-ignore
+            <ChatItem content={chat.content} role={chat.role} key={index} />
           ))}
         </Box>
         <div
           style={{
             width: "100%",
-            padding: "20px",
             borderRadius: 8,
             backgroundColor: "rgb(17,27,39)",
             display: "flex",
             margin: "auto",
           }}
         >
+          {" "}
           <input
+            ref={inputRef}
             type="text"
             style={{
               width: "100%",
               backgroundColor: "transparent",
-              padding: "10px",
+              padding: "30px",
               border: "none",
               outline: "none",
               color: "white",
               fontSize: "20px",
             }}
           />
+          <IconButton onClick={handleSubmit} sx={{ color: "white", mx: 1 }}>
+            <IoMdSend />
+          </IconButton>
         </div>
       </Box>
     </Box>
