@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 const Logo = () => {
@@ -8,7 +7,7 @@ const Logo = () => {
         display: "flex",
         marginRight: "auto",
         alignItems: "center",
-        gap: "8px",
+        gap: "15px",
       }}
     >
       <Link to={"/"}>
@@ -19,18 +18,17 @@ const Logo = () => {
           height={"30px"}
           className="image-inverted"
         />
-        
-      </Link>
+      </Link>{" "}
       <Typography
-          sx={{
-            display: { md: "block", sm: "none", xs: "none" },
-            mr: "auto",
-            fontWeight: "800",
-            textShadow: "2px 2px 20px #000",
-          }}
-        >
-          <span style={{fontSize:"20px"}}>CUSTOM</span>-GPT
-        </Typography>
+        sx={{
+          display: { md: "block", sm: "none", xs: "none" },
+          mr: "auto",
+          fontWeight: "800",
+          textShadow: "2px 2px 20px #000",
+        }}
+      >
+        <span style={{ fontSize: "20px" }}>MERN</span>-GPT
+      </Typography>
     </div>
   );
 };

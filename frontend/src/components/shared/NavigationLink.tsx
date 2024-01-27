@@ -7,11 +7,11 @@ type Props = {
   textColor: string;
   onClick?: () => Promise<void>;
 };
-
 const NavigationLink = (props: Props) => {
   return (
     <Link
-    className="nav-link"
+      onClick={props.onClick}
+      className="nav-link"
       to={props.to}
       style={{ background: props.bg, color: props.textColor }}
     >

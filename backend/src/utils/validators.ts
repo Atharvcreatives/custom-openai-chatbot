@@ -25,13 +25,11 @@ export const loginValidator = [
     .withMessage("Password should contain atleast 6 characters"),
 ];
 
-
 export const signupValidator = [
   body("name").notEmpty().withMessage("Name is required"),
   ...loginValidator,
 ];
 
 export const chatCompletionValidator = [
-  body("message").notEmpty().withMessage("Message is required"),
-  ...loginValidator,
+  body("message").notEmpty().withMessage("Message  is required"),
 ];
