@@ -1,7 +1,7 @@
 <h1 align="center" id="title">Custom-OpenAI-Chatbot</h1>
 
 <p align="center"><img src="https://socialify.git.ci/Atharvcreatives/custom-openai-chatbot/image?font=Jost&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Plus&amp;stargazers=1&amp;theme=Light" alt="project-image"></p>
-<p id="description">Built a secure and scalable AI chatbot with the MERN Stack and **Advanced Authentication**. The project is a ChatGPT Clone. The project uses React Node MongoDB Express and Typescript. Created advanced secure and production-ready SaaS application with MERN stack.</p>
+<p id="description">Built a secure and scalable AI chatbot with the MERN Stack and <b>Advanced Authentication</b>. The project is a ChatGPT Clone. The project uses React Node MongoDB Express and Typescript. Created advanced secure and production-ready SaaS application with MERN stack.</p>
   
   
 <h2>🧐 Features</h2>
